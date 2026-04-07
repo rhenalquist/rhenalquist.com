@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ $heroMap := dict "who-i-am" "hero-whoiam.png" "system" "hero-system.png" }}
+{{ $slug := .File.ContentBaseName }}
+{{ $hero := index $heroMap $slug }}
+{{ with $hero }}
+<div class="hero">
+  <img src="/images/{{ . }}" alt="{{ $slug }} hero image">
+</div>
+{{ end }}
+<article>
+  <div class="page-header">
+    <div class="page-title">{{ .Title }}</div>
+    {{ with .Description }}<p class="page-description">{{ . }}</p>{{ end }}
+  </div>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

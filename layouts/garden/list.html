@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="hero">
+  <img src="/images/hero-garden.png" alt="Overhead creative workspace with synths dissolving into code">
+</div>
+<div class="page-header">
+  <div class="page-title">The Garden</div>
+</div>
+<div class="garden-intro">
+  {{ .Content }}
+</div>
+<div class="garden-filters">
+  <a href="/garden/" class="active">all</a>
+  {{ $tags := .Site.Taxonomies.tags }}
+  {{ range $name, $taxonomy := $tags }}
+  <a href="/tags/{{ $name | urlize }}/">#{{ $name }}</a>
+  {{ end }}
+</div>
+<div class="garden-posts">
+  {{ range sort .RegularPages "Date" "desc" }}
+  <div class="garden-post-card{{ if .Params.featured }} featured{{ end }}">
+    <div class="post-date">{{ .Date.Format "January 2, 2006" }}</div>
+    <div class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+    <div class="post-tags">
+      {{ range .Params.tags }}<span class="tag">#{{ . }}</span>{{ end }}
+    </div>
+    {{ with .Description }}<div class="post-excerpt">{{ . }}</div>{{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}

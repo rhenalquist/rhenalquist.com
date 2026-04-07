@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="page-title">{{ .Title }}</div>
+</div>
+<div class="garden-posts">
+  {{ range .Pages }}
+  <div class="garden-post-card{{ if .Params.featured }} featured{{ end }}">
+    <div class="post-date">{{ .Date.Format "January 2, 2006" }}</div>
+    <div class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+    <div class="post-tags">
+      {{ range .Params.tags }}<span class="tag">#{{ . }}</span>{{ end }}
+    </div>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

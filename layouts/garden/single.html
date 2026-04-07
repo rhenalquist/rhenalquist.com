@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article>
+  <div class="post-meta">{{ .Date.Format "January 2, 2006" }}</div>
+  <h1 class="post-header-title">{{ .Title }}</h1>
+  <div class="post-tags-header">
+    {{ range .Params.tags }}<span class="tag">#{{ . }}</span>{{ end }}
+  </div>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+  <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+    <a href="/garden/" style="font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--muted); text-decoration: none;">&larr; Back to the garden</a>
+  </div>
+</article>
+{{ end }}
