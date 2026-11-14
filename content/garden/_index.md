@@ -1,6 +1,6 @@
 ---
 title: "The Garden"
-description: "Everything I make and think. Music, essays, fragments, code. Tagged but not siloed."
+description: "Everything I make and think. Music, pictures, films, essays, fragments, code. Tagged but not siloed."
 layout: "garden"
 ---
 
