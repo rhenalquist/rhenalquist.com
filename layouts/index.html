@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="hero">
+  <img src="/images/hero-home.png" alt="Roots and circuits converging at a glowing interface line">
+</div>
+<div class="home-content">
+  <div class="statement">
+    {{ .Content }}
+  </div>
+  <div style="margin-top: 2rem;">
+    {{ $latest := (where .Site.RegularPages "Section" "garden") }}
+    {{ with index (sort $latest "Date" "desc") 0 }}
+    <a href="{{ .RelPermalink }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border);">Latest in the garden: {{ .Title }}</a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
